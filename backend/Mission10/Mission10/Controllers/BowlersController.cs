@@ -21,6 +21,7 @@ namespace Mission10.Controllers
         {
             var bowlerList = _bowlerContext.Bowlers
                 .Include(b => b.Team) // includes Team table
+                .Where(b => b.Team.TeamName == "Marlins" || b.Team.TeamName == "Sharks") // Filters only Marlins and Sharks
                 .ToList();
             return (bowlerList);
         }
